@@ -1,0 +1,140 @@
+body {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 16px;
+}
+
+#map {
+  width: 100vw;
+  height: 100vh;
+}
+
+.modalWindow {
+  min-width: 380px;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: 'Fira Sans', sans-serif;
+  background: #fff;
+}
+
+
+.modalWindow__head, .modalWindow__reviewsWrapper, .modalWindow__form {
+  padding: 16px;
+}
+
+.modalWindow__head {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  font-size: 15px;
+  flex-flow: row nowrap;
+  background: #ff8663;
+  color: white;
+}
+
+.modalWindow__headLogo {
+  padding-right: 8px;
+} 
+
+.modalWindow__head-title {
+  flex-grow: 1;
+}
+
+.modalWindow__head-cross, .modalWindow__headLogo{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.modalWindow__head-cross:hover {
+  cursor: pointer;
+}
+
+.modalWindow__reviews {
+  box-sizing: border-box;
+  color: #4f4f4f;
+  overflow: auto;
+}
+
+.modalWindow__reviewAuthor{
+  font-weight: bold;
+}
+ 
+.modalWindow__reviewPlace {
+  font-weight: bold;
+  color: #a3a3a3;
+}
+
+.modalWindow__reviewTime {
+  color: #a3a3a3;
+}
+
+.modalWindow__reviewBody {
+  padding: 10px 0 18px 0;
+}
+
+.modalWindow__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalWindow__formNameField, .modalWindowPlaceField, .modalWindow__formReviewField {
+  margin-top: 16px;
+  padding: 8px 16px;
+  border-radius: 16px;
+  border: 1px solid #a3a3a3;
+  outline: none;
+}
+
+.modalWindow__formTitle {
+  padding-top: 16px;
+  line-height: 1;
+  border-top: 1px solid #a3a3a3;
+  color: #ff8663;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.modalWindow__formAddBlock {
+  margin-top: 16px;
+  display: flex;
+  margin-left: auto;
+}
+
+.modalWindow__formAddBtn {
+  padding: 8px 16px;
+  color: #fff;
+  background: #ff8663;
+  font-size: 12px;
+  border-radius: 10px;
+  border: none;
+}
+
+.modalWindow__formAddBtn:hover {
+  cursor: pointer;
+}
+
+.review {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  min-height: 177px;
+}
+.review div {
+  margin-bottom: 15px;
+}
+
+.review:last-child {
+  margin-bottom: 0;
+}
+
+.review__place {
+  font-weight: bold;
+}
+
+.review__main {
+  flex-grow: 1;
+}
+
+.review__time {
+  text-align: right;
+  color: #a3a3a3;
+}
