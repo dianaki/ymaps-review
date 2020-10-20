@@ -14,7 +14,7 @@ function init() {
       this.constructor.superclass.build.call(this);
       const data = this.getData().properties._data;
 
-      this.getParentElement().querySelector('.review__addressLink').addEventListener('click', e => {
+      this.getParentElement().querySelector('.address__link').addEventListener('click', e => {
         e.preventDefault();
         openBaloon(data.coords)
       })
@@ -50,7 +50,7 @@ function init() {
     localStorage.reviews = JSON.stringify(reviews)
   };
 
-  for (let place in reviews) {
+  for (const place in reviews) {
     reviews[place].forEach(review => {
       clusterer.add(createPlacemark(place.split(':'), review));
     })
@@ -62,7 +62,7 @@ function init() {
 
       let coords;
       const root = this.getParentElement().querySelector('#modalWindow');
-      const reviewsElem = root.querySelector('.modalWindow__reviews');
+      const reviewsElem = root.querySelector('.reviews');
 
       this._rootPosition = root.getBoundingClientRect();
 
@@ -86,23 +86,23 @@ function init() {
       ymaps.geocode(coords).then(res => {
         const address = res.geoObjects.get(0).properties.get('text');
 
-        root.querySelector('.modalWindow__head-title').textContent = address;
+        root.querySelector('.modal__head-title').textContent = address;
 
-        root.querySelector('.modalWindow__head-cross').addEventListener('click', this.onCloseClick.bind(this));
+        root.querySelector('.modal__head-cross').addEventListener('click', this.onCloseClick.bind(this));
 
-        root.querySelector('.modalWindow__formAddBtn').addEventListener('click', e => {
+        root.querySelector('.form__button-add').addEventListener('click', e => {
+          e.preventDefault();
           const time = new Date();
           const review = new Review(
-            root.querySelector('.modalWindow__formNameField').value,
-            root.querySelector('.modalWindowPlaceField').value,
+            root.querySelector('.input__name').value,
+            root.querySelector('.input__place').value,
             `${(time.getDate() < 10) ? '0' : ''}${time.getDate()}.${(time.getMonth() < 10) ? '0' : ''}${time.getMonth()}.${time.getFullYear()}, ${time.getHours()}:${(time.getMinutes() < 10) ? '0' : ''}${time.getMinutes()}`,
-            root.querySelector('.modalWindow__formReviewField').value,
+            root.querySelector('.input__review').value,
             address);
 
           if (!reviews[coords.join(':')]) {
             reviewsElem.innerHTML = ''
           }
-
 
           reviewsElem.innerHTML += new ymaps.Template(review__template.textContent).build(new ymaps.data.Manager(review)).text;
 
@@ -113,6 +113,10 @@ function init() {
           reviews[coords.join(':')].push(review);
 
           clusterer.add(createPlacemark(coords, review));
+
+          root.querySelector('.input__name').value = '';
+          root.querySelector('.input__place').value = '';
+          root.querySelector('.input__review').value = '';
         })
       })
 

@@ -8,7 +8,7 @@ body {
   height: 100vh;
 }
 
-.modalWindow {
+.modal {
   min-width: 380px;
   border-radius: 10px;
   overflow: hidden;
@@ -17,11 +17,11 @@ body {
 }
 
 
-.modalWindow__head, .modalWindow__reviewsWrapper, .modalWindow__form {
+.modal__head, .reviews__wrapper, .form {
   padding: 16px;
 }
 
-.modalWindow__head {
+.modal__head {
   display: flex;
   align-items: center;
   line-height: 1;
@@ -31,52 +31,52 @@ body {
   color: white;
 }
 
-.modalWindow__headLogo {
+.modal__head-logo {
   padding-right: 8px;
 } 
 
-.modalWindow__head-title {
+.modal__head-title {
   flex-grow: 1;
 }
 
-.modalWindow__head-cross, .modalWindow__headLogo{
+.modal__head-cross, .modal__head-logo{
   font-weight: bold;
   font-size: 14px;
 }
 
-.modalWindow__head-cross:hover {
+.modal__head-cross:hover {
   cursor: pointer;
 }
 
-.modalWindow__reviews {
+.reviews {
   box-sizing: border-box;
   color: #4f4f4f;
   overflow: auto;
 }
 
-.modalWindow__reviewAuthor{
+.review__author{
   font-weight: bold;
 }
  
-.modalWindow__reviewPlace {
+.review__place {
   font-weight: bold;
   color: #a3a3a3;
 }
 
-.modalWindow__reviewTime {
+.review__time {
   color: #a3a3a3;
 }
 
-.modalWindow__reviewBody {
+.review__body {
   padding: 10px 0 18px 0;
 }
 
-.modalWindow__form {
+.form {
   display: flex;
   flex-direction: column;
 }
 
-.modalWindow__formNameField, .modalWindowPlaceField, .modalWindow__formReviewField {
+.input__name, .input__place, .input__review {
   margin-top: 16px;
   padding: 8px 16px;
   border-radius: 16px;
@@ -84,7 +84,7 @@ body {
   outline: none;
 }
 
-.modalWindow__formTitle {
+.form__title {
   padding-top: 16px;
   line-height: 1;
   border-top: 1px solid #a3a3a3;
@@ -93,13 +93,13 @@ body {
   font-weight: bold;
 }
 
-.modalWindow__formAddBlock {
+.form__button {
   margin-top: 16px;
   display: flex;
   margin-left: auto;
 }
 
-.modalWindow__formAddBtn {
+.form__button-add {
   padding: 8px 16px;
   color: #fff;
   background: #ff8663;
@@ -108,16 +108,17 @@ body {
   border: none;
 }
 
-.modalWindow__formAddBtn:hover {
+.form__button-add:hover {
   cursor: pointer;
 }
 
-.review {
+.review__prop {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
   min-height: 177px;
 }
+
 .review div {
   margin-bottom: 15px;
 }
@@ -126,7 +127,7 @@ body {
   margin-bottom: 0;
 }
 
-.review__place {
+.review__prop-place {
   font-weight: bold;
 }
 
@@ -134,7 +135,7 @@ body {
   flex-grow: 1;
 }
 
-.review__time {
+.review__prop-time {
   text-align: right;
   color: #a3a3a3;
 }

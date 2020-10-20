@@ -2,68 +2,70 @@
 <html lang="ru">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ymap-review</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ymap-review</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-  <div id="map"></div>
+    <div id="map"></div>
 
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=a721b90f-26b0-44d7-b8e2-7850414ca110&lang=ru_RU"
-    type="text/javascript">
-    </script>
-  <script src="main.js"></script>
-  <script src="main.js"></script>
-    <script id="template" type="yamaps-template">
-        <div id="modalWindow" class="modalWindow">
-            <div class="modalWindow__head">
-                <div class="modalWindow__headLogo"><i class="fas fa-map-marker-alt"></i></div>
-                <div class="modalWindow__head-title">Ожидаем адрес...</div>
-                <div class="modalWindow__head-cross"><i class="fas fa-times"></i></div>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=a721b90f-26b0-44d7-b8e2-7850414ca110&lang=ru_RU"
+        type="text/javascript">
+        </script>
+    <script src="main.js"></script>
+    <script src="main.js"></script>
+    <script id="template" type="template">
+        <div id="modalWindow" class="modal">
+            <div class="modal__head">
+                <div class="modal__head-logo"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="modal__head-title">Ожидаем адрес...</div>
+                <div class="modal__head-cross"><i class="fas fa-times"></i></div>
             </div>
-            <div class="modalWindow__reviewsWrapper">
-                <div class="modalWindow__reviews">
-                    <div class="modalWindow__review">
-                        <div class="modalWindow__reviewEmpty">Пока нет отзывов</div>
+            <div class="reviews__wrapper">
+                <div class="reviews">
+                    <div class="review">
+                        <div class="review__empty">Пока нет отзывов</div>
                     </div>
                 </div> 
             </div>
-            <div class="modalWindow__form">
-                <div class="modalWindow__formTitle">Ваш отзыв</div>
-                <input type="text" name="" id="" class="modalWindow__formNameField" placeholder="Ваше имя">
-                <input type="text" name="" id="" class="modalWindowPlaceField" placeholder="Укажите место">
-                <textarea type="text" name="" id="" class="modalWindow__formReviewField" placeholder="Поделитесь впечатлениями" rows="6"></textarea>
-                <div class="modalWindow__formAddBlock">
-                    <button class="modalWindow__formAddBtn">Добавить</button>
+            <form id="myForm" class="modal__form">
+                <div class="form">
+                    <div class="form__title">Ваш отзыв</div>
+                    <input type="text" name="" id="" class="input__name" placeholder="Ваше имя">
+                    <input type="text" name="" id="" class="input__place" placeholder="Укажите место">
+                    <textarea type="text" name="" id="" class="input__review" placeholder="Поделитесь впечатлениями" rows="6"></textarea>
+                    <div class="form__button">
+                        <button class="form__button-add">Добавить</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </script>
-    <script id="review__template" type="yamaps-template">
-        <div class="modalWindow__review">
-            <div class="modalWindow__reviewInfo">
-                <span class="modalWindow__reviewAuthor">{{ author }}</span>
-                <span class="modalWindow__reviewPlace">{{ place }}</span>
-                <span class="modalWindow__reviewTime">{{ time }}</span>
+    <script id="review__template" type="template">
+        <div class="review__info">
+            <div class="review">
+                <span class="review__author">{{ author }}</span>
+                <span class="review__place">{{ place }}</span>
+                <span class="review__time">{{ time }}</span>
             </div>
-            <div class="modalWindow__reviewBody">{{ salt }}</div>
+            <div class="review__body">{{ salt }}</div>
         </div>
     </script>
-    
-    <script id="reviewInCluster__template" type="yamaps-template">
-        <div class="review">
+
+    <script id="reviewInCluster__template" type="template">
+        <div class="review__prop">
             <div class="review__main">
-            <div class="review__place">{{properties.review.place}}</div>
-            <div class="review__address">
-                <a class="review__addressLink" href="">{{properties.review.addres}}</a>
+            <div class="review__prop-place">{{ properties.review.place }}</div>
+            <div class="review__prop-address">
+                <a class="address__link" href="">{{ properties.review.addres }}</a>
             </div>
-            <div class="review__salt">{{properties.review.salt}}</div>
+            <div class="review__prop-salt">{{ properties.review.salt }}</div>
             </div>
-            <div class="review__time">{{properties.review.time}}</div>
+            <div class="review__prop-time">{{ properties.review.time }}</div>
         </div>
     </script>
 </body>
